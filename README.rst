@@ -1,7 +1,8 @@
-Auto Login to School WiFi
-=========================
+MikroTik Hotspot auto login
+===========================
 
-This project automates the login process for the school WiFi using .
+This project automates the login process for the school WiFi using MikroTik Hotspot and designed for Sochcollege of IT ,Pokhara Nepal,But can be customized to your flavour of choice.
+
 
 Setup Instructions
 ------------------
