@@ -58,8 +58,11 @@ Follow these steps to set up and run the project:
 
    .. code-block:: bash
 
-      node md5.js # on one terminal 
-      python connect.py # on other terminal with virtualenv activated
+      # On One Shell
+      node md5.js 
+      
+      # On Different Shell
+      python connect.py 
     
 6. **LICENSE**
    GNU General Public License v3.0
