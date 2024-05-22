@@ -60,4 +60,6 @@ Follow these steps to set up and run the project:
 
       node md5.js # on one terminal 
       python connect.py # on other terminal with virtualenv activated
-
+    
+6. **LICENSE**
+   GNU General Public License v3.0
