@@ -18,21 +18,29 @@ headers = {
 
 def let_login(payload:dict['str','str']):
     url="http://wifi.sochcollege.edu.np/login"
-    print(f"SENDING REQUESt TO {url}")
-    response= requests.post(url=url,json=payload,headers=headers)
-    if "Welcome" in response.text:
-        print("You are Sucessfully Logged In")
+    print(f"Sending Request to : {url}")
+    payload_ = f'username={payload['username']}&password={payload['password']}&dst=http%3A%2F%2Fdetectportal.brave-http-only.com%2F&popup=false'
+    response = requests.request("POST", url, headers=headers, data=payload_)
+    if "You are logged in" in response.text:
+        print("Logged Sucess")
+    elif "Invalid Username or Password" in response.text:
+        print(f"\x1b[31m Credientials is not correct recheck credentials.py file \x1b[33m [ Make sure you pur your own Credentials ]\x1b[0m")
     else:
-        print("\x1b[31m Failed to login \x1b[0m",response.status_code,response.text)
-        with open("temp.html",'w') as fp:
+        print("\x1b[31m Failed to login Response dumped on invalid.html\x1b[0m",response.status_code)
+        with open("invalid.html",'w') as fp:
             fp.write(response.text)
         exit(code=1)
 
 
 def main()->None:
     url="http://wifi.sochcollege.edu.np/login"
+    
+    headers = {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9'
+    }
     try:
-        response=requests.get(url=url)
+        response=requests.get(url=url,headers=headers)
     except requests.exceptions.ConnectionError as e:
         print(f"\x1b[31m Connection ERR: \x1b[0 \x1b[32m Are you connected to SOCHCOLLEGE WIFI ?\x1b[0m")
         exit(1)
