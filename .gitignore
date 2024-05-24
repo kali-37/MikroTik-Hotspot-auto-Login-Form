@@ -1,5 +1,5 @@
 .venv
 node_modules
-resp.html
+*.html
 .vscode
 __pycache__

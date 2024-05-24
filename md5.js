@@ -229,7 +229,7 @@ app.post('/process_post',function(req, res) {
       password:eval(req.body.password_eval)
   };  
   console.log(req.body);  
-  res.end(JSON.stringify(response));  
+  res.send(JSON.stringify(response));  
 })  
 
 app.listen(port,()=>{
