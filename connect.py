@@ -19,7 +19,7 @@ headers = {
 def let_login(payload:dict['str','str']):
     url="http://wifi.sochcollege.edu.np/login"
     print(f"Sending Request to : {url}")
-    payload_ = f'username={payload['username']}&password={payload['password']}&dst=http%3A%2F%2Fdetectportal.brave-http-only.com%2F&popup=false'
+    payload_ = f'username={payload['username']}&password={payload['password']}'
     response = requests.request("POST", url, headers=headers, data=payload_)
     if "You are logged in" in response.text:
         print("Logged Sucess")
@@ -82,7 +82,7 @@ def main()->None:
             need_pattern=pattern_match.group(0).replace('document.login.password.value',f"{credentials.password.__repr__()}")
             # print(need_pattern)
             passcode: requests.Response=requests.post(url='http://localhost:8000/process_post',json={"password_eval":need_pattern})
-            login_payload={'username':credentials.username,'password':passcode.json()['password'],'dst': 'http%3A%2F%2Fdetectportal.brave-http-only.com%2F','popup':False}
+            login_payload={'username':credentials.username,'password':passcode.json()['password']}
             let_login(payload=login_payload)
 
 if __name__=="__main__":
