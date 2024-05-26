@@ -221,7 +221,7 @@ function calcMD5(str) { return binl2hex(coreMD5( str2binl(str))) }
 
 const express = require('express');
 const app= express();
-const port =8000;
+const port =8002;
 app.use(express.json())
 
 app.post('/process_post',function(req, res) {  

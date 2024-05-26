@@ -1,2 +1,2 @@
-username:str= "9........" # Sample phone number
-password:str="your-name"
+username:str= "9846706367" # Sample phone number
+password:str="subash"

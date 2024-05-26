@@ -19,10 +19,10 @@ headers = {
 def let_login(payload:dict['str','str']):
     url="http://wifi.sochcollege.edu.np/login"
     print(f"Sending Request to : {url}")
-    payload_ = f'username={payload['username']}&password={payload['password']}'
+    payload_ = f'''username={payload['username']}&password={payload['password']}'''
     response = requests.request("POST", url, headers=headers, data=payload_)
     if "You are logged in" in response.text:
-        print("Logged Sucess")
+        print("Logged In Successfully")
     elif "Invalid Username or Password" in response.text:
         print(f"\x1b[31m Credientials is not correct recheck credentials.py file \x1b[33m [ Make sure you pur your own Credentials ]\x1b[0m")
     else:
